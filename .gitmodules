@@ -1,0 +1,6 @@
+[submodule "auto-code-rover"]
+	path = auto-code-rover
+	url = https://github.com/Amirresm/auto-code-rover.git
+[submodule "ARISE"]
+	path = ARISE
+	url = git@github.com:FARD-Lab/ARISE.git
