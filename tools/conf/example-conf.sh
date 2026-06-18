@@ -14,7 +14,7 @@ export TASK_FILE=/opt/conf/tasks.txt
 export SWE_TESTBED=/ACR-SWE/$EXP_ID
 export ACR_OUTPUT=$SWE_TESTBED/out
 
-export VLLM_BASE_URL=http://localhost:11888/v1
+export OPENAI_BASE_URL=http://localhost:11888/v1
 
 # if use arise
 
