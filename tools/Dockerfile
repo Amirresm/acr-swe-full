@@ -26,16 +26,16 @@ COPY auto-code-rover /opt/auto-code-rover
 COPY ARISE /opt/arise
 
 # Utils
-COPY acr-swe-full/assets/banner.sh /etc/profile.d/banner.sh
+COPY tools/assets/banner.sh /etc/profile.d/banner.sh
 RUN echo 'source /etc/profile.d/banner.sh' >> /etc/bash.bashrc
 
-COPY acr-swe-full/assets /opt/assets
-COPY acr-swe-full/conf /opt/conf
+COPY tools/assets /opt/assets
+COPY tools/conf /opt/conf
 
-COPY acr-swe-full/scripts/setup-testbed.sh /opt/SWE-bench
-COPY acr-swe-full/scripts/run-eval.sh /opt/SWE-bench
+COPY tools/scripts/setup-testbed.sh /opt/SWE-bench
+COPY tools/scripts/run-eval.sh /opt/SWE-bench
 
-COPY acr-swe-full/scripts/run-acr.sh /opt/auto-code-rover
+COPY tools/scripts/run-acr.sh /opt/auto-code-rover
 
 WORKDIR /opt
 
