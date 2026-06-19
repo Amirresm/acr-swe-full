@@ -20,8 +20,7 @@ conda activate swe-bench
 
 echo "Running testbed setup with testbed directory: $SWE_TESTBED"
 
-# num processes can be set as an environment variable, default to max - 2
-NUM_PROCESSES=${NUM_PROCESSES:-$(($(nproc) - 2))}
+NUM_PROCESSES=${NUM_PROCESSES:-4}
 echo "Using $NUM_PROCESSES processes for setup."
 
 echo "Using task file: $TASK_FILE"

@@ -16,6 +16,8 @@ export ACR_OUTPUT=$SWE_TESTBED/out
 
 export OPENAI_BASE_URL=http://localhost:11888/v1
 
+export NUM_PROCESSES=$(( $(nproc) / 2 - 2 ))
+export NUM_PROCESSES_RUN=$(( $(nproc) / 2 - 2 ))
 # if use arise
 
 if [ $USE_ARISE -eq 1 ]; then

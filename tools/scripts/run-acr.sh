@@ -34,11 +34,15 @@ echo "Outputting ACR results to: $ACR_OUTPUT"
 
 echo "Using task file: $TASK_FILE"
 
+NUM_PROCESSES_RUN=${NUM_PROCESSES_RUN:-4}
+echo "Using $NUM_PROCESSES_RUN processes for ACR generation."
+
 PYTHONPATH=. python app/main.py swe-bench \
     --model $MODEL_NAME \
     --setup-map $SWE_TESTBED/setup_result/setup_map.json \
     --tasks-map $SWE_TESTBED/setup_result/tasks_map.json \
     --output-dir $ACR_OUTPUT \
+    --num-processes $NUM_PROCESSES_RUN \
     --task-list-file $TASK_FILE
 
 conda deactivate
