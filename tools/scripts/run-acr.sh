@@ -47,6 +47,14 @@ if [ "$ACR_RESUME" = "1" ]; then
     echo "Resume mode ON: completed tasks in $ACR_OUTPUT will be skipped."
 fi
 
+# Cap the number of context-retrieval rounds per task (ACR default is 15).
+# Set CONV_ROUND_LIMIT to override; leave unset to keep the default.
+CONV_ROUND_FLAG=""
+if [ -n "$CONV_ROUND_LIMIT" ]; then
+    CONV_ROUND_FLAG="--conv-round-limit $CONV_ROUND_LIMIT"
+    echo "Context-retrieval round limit set to $CONV_ROUND_LIMIT."
+fi
+
 PYTHONPATH=. python app/main.py swe-bench \
     --model $MODEL_NAME \
     --setup-map $SWE_TESTBED/setup_result/setup_map.json \
@@ -54,6 +62,7 @@ PYTHONPATH=. python app/main.py swe-bench \
     --output-dir $ACR_OUTPUT \
     --num-processes $NUM_PROCESSES_RUN \
     --task-list-file $TASK_FILE \
-    $RESUME_FLAG
+    $RESUME_FLAG \
+    $CONV_ROUND_FLAG
 
 conda deactivate
